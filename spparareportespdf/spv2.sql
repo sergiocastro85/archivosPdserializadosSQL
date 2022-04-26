@@ -1,7 +1,5 @@
-Insert into dbSurenting.dbo.TblControlEjecucionSofi ( strNroSofi, dtmFechaProceso, strDescripcion, strAnalista)
-values('37830',getdate(), 'Inicio: spCrearPdfOCsunegocio SUNEGOCIO', 'scastroc')
-GO
-USE dbSunegocio
+
+USE BD
 GO
 
 SET ANSI_NULLS ON
@@ -11,7 +9,7 @@ GO
 -- ========================================================================================================================
 -- Author:		Sergio Andres Castro Cano
 -- Create date: 25-02-2022
--- Description:	Sofi: 37830 - permite generar los pdf de las ordenes de compra y gurdarlos en \\surenting.com.co\publicomde\ArchivosPdfOC\Sunegocio
+-- permite generar los pdf
 ---- ======================================================================================================================
 
 --EXECUTE spCrearPdfOCsunegocio '192902,192905,192946,192948,192950,192951,192952,192954,192955,1929570','prueba'
@@ -36,8 +34,8 @@ BEGIN
 	BEGIN TRANSACTION
 		
 		
-	--DECLARE @outPutPath varchar(50) = '\\surenting.com.co\publicomde\Compartida\Pruebas'
-	DECLARE @outPutPath varchar(200) = '\\surenting.com.co\publicomde\ArchivosPdfOC\Sunegocio'
+	--DECLARE @outPutPath varchar(50) = '\\URL\publicomde\Compartida\Pruebas'
+	DECLARE @outPutPath varchar(200) = '\\URL\publicomde\ArchivosPdfOC'
 	, @i bigint
 	, @init int
 	, @data varbinary(max)
@@ -171,5 +169,3 @@ BEGIN
 	END CATCH 	
 END
 GO
-Insert into dbSurenting.dbo.TblControlEjecucionSofi ( strNroSofi, dtmFechaProceso, strDescripcion, strAnalista)
-values('37830',getdate(), 'Fin: spCrearPdfOCsunegocio SUNEGOCIO', 'scastroc')
